@@ -2,11 +2,13 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Title from "../components/title"
 const Projects = ({ data }) => {
   const projects = data.allContentfulProject.edges
   return (
     <Layout>
       <SEO title="Projects" />
+      <Title text="Projects" />
       <h1>{"Here's a list of all projects!"}</h1>
       <div className="blogposts">
         {projects.map(({ node: project }) => (
