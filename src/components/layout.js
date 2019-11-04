@@ -16,16 +16,27 @@ const Layout = ({ children }) => {
   return (
     <div
       className={css`
-        margin: 0 calc(1.5rem + 6vw);
+        margin: 0 calc(1.5rem + 8vw);
       `}
     >
       <Header />
-      <main>{children}</main>
-      {/* <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer> */}
+      <div
+        className={css`
+          max-width: 100rem;
+          margin: 0 auto;
+        `}
+      >
+        <main className={css``}>{children}</main>
+        <footer
+          className={css`
+            margin: calc(4rem + 4vw) 0 calc(2rem + 2vw);
+            font-size: calc(0.7rem + 0.7vw);
+          `}
+        >
+          © Rintaro Hasegawa, Built with Gatsby, Contentful and ❤️, All Rights
+          Reserved.
+        </footer>
+      </div>
     </div>
   )
 }

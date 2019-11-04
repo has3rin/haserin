@@ -5,12 +5,13 @@ import styled from "@emotion/styled"
 
 const StyledLink = styled(Link)`
   margin-left: calc(0.5rem + 4vw);
+  font-weight: 300;
 `
 const Header = ({ data }) => {
   return (
     <header
       className={css`
-        margin: calc(2rem + 4vw) 0 calc(1rem + 2vw);
+        margin: calc(1rem + 3vw) 0;
         display: flex;
         align-items: center;
       `}
