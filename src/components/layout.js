@@ -19,13 +19,13 @@ const Layout = ({ children }) => {
         margin: 0 calc(1.5rem + 8vw);
       `}
     >
-      <Header />
       <div
         className={css`
           max-width: 100rem;
           margin: 0 auto;
         `}
       >
+        <Header />
         <main className={css``}>{children}</main>
         <footer
           className={css`

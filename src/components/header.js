@@ -32,7 +32,7 @@ const Header = ({ data }) => {
     >
       <div
         className={css`
-          font-size: calc(1rem + 2vw);
+          font-size: calc(2.4rem + 1vw);
           font-weight: 700;
           flex: 2;
         `}
@@ -71,12 +71,12 @@ const Header = ({ data }) => {
               transition: 0.4s ease;
               -webkit-tap-highlight-color: transparent;
               height: 30px;
-              width: 50px;
+              width: 60px;
               border: 1px solid #e4e4e4;
               border-radius: 60px;
               &:before {
                 height: 30px;
-                width: 51px;
+                width: 61px;
                 top: 0;
                 left: 0;
                 border-radius: 30px;
@@ -117,7 +117,7 @@ const Header = ({ data }) => {
                 transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
               }
               & + label:after {
-                left: calc(54px - 30px);
+                left: calc(61px - 30px);
               }
             }
           `}
@@ -146,23 +146,23 @@ const Header = ({ data }) => {
           <div
             className={css`
               display: flex;
-              margin: 0.7rem;
-              font-weight: 200;
+              margin: 0.6rem 0;
+              font-size: 1.2rem;
             `}
           >
             <div
               className={css`
-                margin-right: 1.2rem;
+                margin-left: 1rem;
               `}
             >
               EN
             </div>
             <div
               className={css`
-                margin-left: 0.2rem;
+                margin-left: 1rem;
               `}
             >
-              JP
+              日
             </div>
           </div>
         </EditedLabel>
