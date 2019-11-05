@@ -16,6 +16,7 @@ const IndexPage = ({ data }) => {
   const { isJapanese } = useSelector(state => state.language)
   const {
     title,
+    titleJa,
     profileImg,
     description,
     descriptionJa,
