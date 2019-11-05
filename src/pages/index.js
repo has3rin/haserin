@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { css } from "emotion"
+import { css } from "@emotion/core"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
@@ -60,14 +60,14 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <div
-        className={css`
+        css={css`
           display: flex;
           flex-direction: column;
           align-items: center;
         `}
       >
         <div
-          className={css`
+          css={css`
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -76,14 +76,14 @@ const IndexPage = ({ data }) => {
         >
           <Fade>
             <div
-              className={css`
+              css={css`
                 margin: 8vh 0;
               `}
             >
               <Img
                 fluid={profileImg.fluid}
                 alt="profile_img"
-                className={css`
+                css={css`
                   height: calc(8rem + 4vw);
                   width: calc(8rem + 4vw);
                   border-radius: 50%;
@@ -111,26 +111,26 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div
-          className={css`
+          css={css`
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 90vh;
           `}
         >
-          <Fade>
-            <div
-              className={css`
-                width: 100%;
-                margin: 16vh 0 8vh;
-                display: flex;
-                justify-content: space-evenly;
-              `}
-            >
+          <div
+            css={css`
+              width: 100%;
+              margin: 16vh 0 8vh;
+              display: flex;
+              justify-content: space-evenly;
+            `}
+          >
+            <Fade>
               <img
                 src={dictterLogo}
                 alt="profile_img"
-                className={css`
+                css={css`
                   height: calc(5rem + 5vw);
                   border-radius: 50%;
                 `}
@@ -138,12 +138,14 @@ const IndexPage = ({ data }) => {
               <img
                 src={lookeastLogo}
                 alt="profile_img"
-                className={css`
+                css={css`
                   height: calc(5rem + 5vw);
                   border-radius: 50%;
                 `}
               />
-            </div>
+            </Fade>
+          </div>
+          <Fade>
             <StyledTitle>
               {isJapanese ? projectTitleJa : projectTitle}
             </StyledTitle>
@@ -167,14 +169,14 @@ const IndexPage = ({ data }) => {
         </div>
         <Fade>
           <div
-            className={css`
+            css={css`
               margin: 8vh 0;
             `}
           >
             <Img
               fluid={blogImg.fluid}
               alt="blogimg"
-              className={css`
+              css={css`
                 width: 80vw;
                 max-width: 60rem;
               `}
