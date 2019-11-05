@@ -1,7 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { css } from "emotion"
+import Img from "gatsby-image"
 import styled from "@emotion/styled"
+import Fade from "react-reveal/Fade"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -42,7 +44,7 @@ const IndexPage = ({ data }) => {
     margin: calc(1rem + 1vw);
   `
   const StyledDescription = styled.div`
-    font-size: calc(1rem + 0.8vw);
+    font-size: calc(1.2rem + 0.5vw);
     max-width: 120rem;
     text-align: center;
     line-height: 1.8;
@@ -59,71 +61,92 @@ const IndexPage = ({ data }) => {
       >
         <div
           className={css`
-            margin: 8vh 0;
-          `}
-        >
-          <img
-            src={profileImg.file.url}
-            alt="profile_img"
-            className={css`
-              height: calc(5rem + 5vw);
-              border-radius: 50%;
-            `}
-          />
-        </div>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledDescription
-          dangerouslySetInnerHTML={{
-            __html: isJapanese
-              ? descriptionJa.childMarkdownRemark.html.replace(/\n/g, `</br>`)
-              : description.childMarkdownRemark.html.replace(/\n/g, `</br>`),
-          }}
-        />
-        <StyledLink to="/about">
-          {isJapanese ? learnMoreJa : learnMore}
-        </StyledLink>
-        <div
-          className={css`
-            width: 100%;
-            margin: 16vh 0 8vh;
             display: flex;
-            justify-content: space-evenly;
+            flex-direction: column;
+            align-items: center;
+            height: 80vh;
           `}
         >
-          <img
-            src={dictterLogo}
-            alt="profile_img"
+          <div
             className={css`
-              height: calc(5rem + 5vw);
-              border-radius: 50%;
+              margin: 8vh 0;
             `}
-          />
-          <img
-            src={lookeastLogo}
-            alt="profile_img"
-            className={css`
-              height: calc(5rem + 5vw);
-              border-radius: 50%;
-            `}
-          />
+          >
+            <Img
+              fluid={profileImg.fluid}
+              alt="profile_img"
+              className={css`
+                height: calc(8rem + 4vw);
+                width: calc(8rem + 4vw);
+                border-radius: 50%;
+              `}
+            />
+          </div>
+          <Fade>
+            <StyledTitle>{title}</StyledTitle>
+            <StyledDescription
+              dangerouslySetInnerHTML={{
+                __html: isJapanese
+                  ? descriptionJa.childMarkdownRemark.html.replace(
+                      /\n/g,
+                      `</br>`
+                    )
+                  : description.childMarkdownRemark.html.replace(
+                      /\n/g,
+                      `</br>`
+                    ),
+              }}
+            />
+            <StyledLink to="/about">
+              {isJapanese ? learnMoreJa : learnMore}
+            </StyledLink>
+          </Fade>
         </div>
-        <StyledTitle>Εύρηκα!</StyledTitle>
-        <StyledDescription
-          dangerouslySetInnerHTML={{
-            __html: isJapanese
-              ? projectDescriptionJa.childMarkdownRemark.html.replace(
-                  /\n/g,
-                  `</br>`
-                )
-              : projectDescription.childMarkdownRemark.html.replace(
-                  /\n/g,
-                  `</br>`
-                ),
-          }}
-        />
-        <StyledLink to="/project">
-          {isJapanese ? projectToJa : projectTo}
-        </StyledLink>
+
+        <Fade>
+          <div
+            className={css`
+              width: 100%;
+              margin: 16vh 0 8vh;
+              display: flex;
+              justify-content: space-evenly;
+            `}
+          >
+            <img
+              src={dictterLogo}
+              alt="profile_img"
+              className={css`
+                height: calc(5rem + 5vw);
+                border-radius: 50%;
+              `}
+            />
+            <img
+              src={lookeastLogo}
+              alt="profile_img"
+              className={css`
+                height: calc(5rem + 5vw);
+                border-radius: 50%;
+              `}
+            />
+          </div>
+          <StyledTitle>Εύρηκα!</StyledTitle>
+          <StyledDescription
+            dangerouslySetInnerHTML={{
+              __html: isJapanese
+                ? projectDescriptionJa.childMarkdownRemark.html.replace(
+                    /\n/g,
+                    `</br>`
+                  )
+                : projectDescription.childMarkdownRemark.html.replace(
+                    /\n/g,
+                    `</br>`
+                  ),
+            }}
+          />
+          <StyledLink to="/project">
+            {isJapanese ? projectToJa : projectTo}
+          </StyledLink>
+        </Fade>
         <StyledDescription
           dangerouslySetInnerHTML={{
             __html: isJapanese
@@ -177,8 +200,8 @@ export const query = graphql`
         }
       }
       profileImg {
-        file {
-          url
+        fluid(maxWidth: 200, maxHeight: 200) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       projectTo
