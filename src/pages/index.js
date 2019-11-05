@@ -74,40 +74,32 @@ const IndexPage = ({ data }) => {
             height: 80vh;
           `}
         >
-          <Fade>
-            <div
+          <div
+            css={css`
+              margin: 8vh 0;
+            `}
+          >
+            <Img
+              fluid={profileImg.fluid}
+              alt="profile_img"
               css={css`
-                margin: 8vh 0;
+                height: calc(8rem + 4vw);
+                width: calc(8rem + 4vw);
+                border-radius: 50%;
               `}
-            >
-              <Img
-                fluid={profileImg.fluid}
-                alt="profile_img"
-                css={css`
-                  height: calc(8rem + 4vw);
-                  width: calc(8rem + 4vw);
-                  border-radius: 50%;
-                `}
-              />
-            </div>
-            <StyledTitle>{title}</StyledTitle>
-            <StyledDescription
-              dangerouslySetInnerHTML={{
-                __html: isJapanese
-                  ? descriptionJa.childMarkdownRemark.html.replace(
-                      /\n/g,
-                      `</br>`
-                    )
-                  : description.childMarkdownRemark.html.replace(
-                      /\n/g,
-                      `</br>`
-                    ),
-              }}
             />
-            <StyledLink to="/about">
-              {isJapanese ? learnMoreJa : learnMore}
-            </StyledLink>
-          </Fade>
+          </div>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledDescription
+            dangerouslySetInnerHTML={{
+              __html: isJapanese
+                ? descriptionJa.childMarkdownRemark.html.replace(/\n/g, `</br>`)
+                : description.childMarkdownRemark.html.replace(/\n/g, `</br>`),
+            }}
+          />
+          <StyledLink to="/about">
+            {isJapanese ? learnMoreJa : learnMore}
+          </StyledLink>
         </div>
 
         <div
