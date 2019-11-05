@@ -10,25 +10,25 @@ import PropTypes from "prop-types"
 
 import Header from "./header"
 import "./layout.css"
-import { css } from "emotion"
+import { css } from "@emotion/core"
 
 const Layout = ({ children }) => {
   return (
     <div
-      className={css`
+      css={css`
         margin: 0 calc(1.5rem + 8vw);
       `}
     >
       <div
-        className={css`
+        css={css`
           max-width: 100rem;
           margin: 0 auto;
         `}
       >
         <Header />
-        <main className={css``}>{children}</main>
+        <main>{children}</main>
         <footer
-          className={css`
+          css={css`
             margin: calc(4rem + 4vw) 0 calc(2rem + 2vw);
             font-size: calc(0.7rem + 0.7vw);
           `}

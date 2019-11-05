@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "emotion"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 const StyledLabel = styled.label`
@@ -50,7 +50,7 @@ const Form = () => {
     <form
       method="post"
       action="#"
-      className={css`
+      css={css`
         display: flex;
         flex-direction: column;
         width: 70vw;

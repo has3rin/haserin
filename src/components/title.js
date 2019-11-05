@@ -1,9 +1,9 @@
 import React from "react"
-import { css } from "emotion"
+import { css } from "@emotion/core"
 export default ({ text }) => {
   return (
     <div
-      className={css`
+      css={css`
         font-size: calc(2rem + 2vw);
         font-weight: 700;
       `}

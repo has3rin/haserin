@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { css } from "emotion"
+import { css } from "@emotion/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/title"
@@ -8,7 +8,7 @@ import Title from "../components/title"
 const Tag = ({ item }) => {
   return (
     <div
-      className={css`
+      css={css`
         font-size: calc(0.6rem + 0.6vw);
         font-weight: 600;
         background-color: #eee;
@@ -32,9 +32,9 @@ const AboutPage = ({ data }) => {
     <Layout>
       <SEO title="About me" />
       <Title text="About" />
-      <div className={css``}>
+      <div>
         <div
-          className={css`
+          css={css`
             margin-top: calc(3rem + 3vw);
             font-size: calc(1.5rem + 1.5vw);
             font-weight: 700;
@@ -44,9 +44,9 @@ const AboutPage = ({ data }) => {
           Education
         </div>
         {educations.map(({ node: education }) => (
-          <div className="">
+          <div>
             <div
-              className={css`
+              css={css`
                 font-size: calc(1.2rem + 1.2vw);
                 font-weight: 600;
                 margin-top: calc(1.5rem + 1.5vw);
@@ -55,7 +55,7 @@ const AboutPage = ({ data }) => {
               {education.title}
             </div>
             <div
-              className={css`
+              css={css`
                 margin-top: calc(0.5rem + 0.5vw);
                 font-size: calc(0.9rem + 0.9vw);
                 font-weight: 600;
@@ -65,7 +65,7 @@ const AboutPage = ({ data }) => {
               {education.subtitle}
             </div>
             <div
-              className={css`
+              css={css`
                 font-size: calc(0.8rem + 0.8vw);
                 font-weight: 300;
                 margin-top: calc(0.1rem + 0.1vw);
@@ -74,7 +74,7 @@ const AboutPage = ({ data }) => {
               {education.term}
             </div>
             <div
-              className={css`
+              css={css`
                 font-size: calc(0.8rem + 0.8vw);
                 margin-top: calc(0.6rem + 0.6vw);
                 text-align: justify;
@@ -87,7 +87,7 @@ const AboutPage = ({ data }) => {
       </div>
       <div>
         <div
-          className={css`
+          css={css`
             font-size: calc(1.5rem + 1.5vw);
             font-weight: 700;
             margin-top: calc(3rem + 3vw);
@@ -97,9 +97,9 @@ const AboutPage = ({ data }) => {
           Careers
         </div>
         {careers.map(({ node: career }) => (
-          <div className="">
+          <div>
             <div
-              className={css`
+              css={css`
                 font-size: calc(1.2rem + 1.2vw);
                 font-weight: 600;
                 margin-top: calc(1.5rem + 1.5vw);
@@ -108,7 +108,7 @@ const AboutPage = ({ data }) => {
               {career.company}
             </div>
             <div
-              className={css`
+              css={css`
                 margin-top: calc(0.5rem + 0.5vw);
                 font-size: calc(0.9rem + 0.9vw);
                 font-weight: 600;
@@ -118,7 +118,7 @@ const AboutPage = ({ data }) => {
               {career.jobTitle}
             </div>
             <div
-              className={css`
+              css={css`
                 font-size: calc(0.8rem + 0.8vw);
                 font-weight: 300;
                 margin-top: calc(0.1rem + 0.1vw);
@@ -127,7 +127,7 @@ const AboutPage = ({ data }) => {
               {career.term}
             </div>
             <div
-              className={css`
+              css={css`
                 display: flex;
                 margin-top: calc(0.2rem + 0.2vw);
               `}
@@ -137,7 +137,7 @@ const AboutPage = ({ data }) => {
               ))}
             </div>
             <div
-              className={css`
+              css={css`
                 font-size: calc(0.8rem + 0.8vw);
                 margin-top: calc(0.6rem + 0.6vw);
                 text-align: justify;

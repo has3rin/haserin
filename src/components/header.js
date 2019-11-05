@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
-import { css } from "emotion"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -24,14 +24,14 @@ const Header = ({ data }) => {
   const { isJapanese } = useSelector(state => state.language)
   return (
     <header
-      className={css`
+      css={css`
         margin: calc(1rem + 3vw) 0;
         display: flex;
         align-items: center;
       `}
     >
       <div
-        className={css`
+        css={css`
           font-size: calc(2.4rem + 1vw);
           font-weight: 700;
           flex: 2;
@@ -39,7 +39,7 @@ const Header = ({ data }) => {
       >
         <Link
           to="/"
-          className={css`
+          css={css`
             color: limegreen;
           `}
         >
@@ -47,7 +47,7 @@ const Header = ({ data }) => {
         </Link>
       </div>
       <div
-        className={css`
+        css={css`
           // Color Variables
           --green: #2ecc71;
           --lightgray: lightgray;
@@ -58,7 +58,7 @@ const Header = ({ data }) => {
         <input
           type="checkbox"
           name="toggle1"
-          className={css`
+          css={css`
             opacity: 0; // hides checkbox
             position: absolute;
             & + label {
@@ -126,7 +126,7 @@ const Header = ({ data }) => {
           checked={isJapanese}
         />
         <EditedLabel
-          className={css`
+          css={css`
             position: relative;
             display: inline-block;
             user-select: none;
@@ -144,21 +144,21 @@ const Header = ({ data }) => {
           japanese={isJapanese}
         >
           <div
-            className={css`
+            css={css`
               display: flex;
               margin: 0.6rem 0;
               font-size: 1.2rem;
             `}
           >
             <div
-              className={css`
+              css={css`
                 margin-left: 1rem;
               `}
             >
               EN
             </div>
             <div
-              className={css`
+              css={css`
                 margin-left: 1rem;
               `}
             >
