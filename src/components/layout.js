@@ -9,34 +9,34 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Header from "./header"
+import Footer from "./footer"
 import "./layout.css"
 import { css } from "@emotion/core"
-
 const Layout = ({ children }) => {
   return (
     <div
       css={css`
-        margin: 0 calc(1.5rem + 8vw);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       `}
     >
       <div
         css={css`
-          max-width: 100rem;
-          margin: 0 auto;
+          margin: 0 calc(1.5rem + 8vw) auto;
         `}
       >
-        <Header />
-        <main>{children}</main>
-        <footer
+        <div
           css={css`
-            margin: calc(4rem + 4vw) 0 calc(2rem + 2vw);
-            font-size: calc(0.7rem + 0.7vw);
+            max-width: 100rem;
+            margin: 0 auto;
           `}
         >
-          © Rintaro Hasegawa, Built with Gatsby, Contentful and ❤️, All Rights
-          Reserved.
-        </footer>
+          <Header />
+          <main>{children}</main>
+        </div>
       </div>
+      <Footer />
     </div>
   )
 }
