@@ -6,7 +6,9 @@ import rootReducer from "./reducers"
 const createStore = () =>
   reduxCreateStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    typeof window !== "undefined" &&
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 // eslint-disable-next-line react/display-name,react/prop-types
 export default ({ element }) => {
