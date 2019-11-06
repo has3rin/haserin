@@ -17,7 +17,8 @@ const EditedLabel = styled.label`
 `
 
 const Breadcrumb = () => {
-  const pathname = window.location.pathname.split("/")
+  const pathname =
+    typeof window !== "undefined" && window.location.pathname.split("/")
   const StyledLink = styled(Link)`
     color: grey;
   `
