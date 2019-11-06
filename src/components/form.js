@@ -49,15 +49,18 @@ const Form = () => {
   return (
     <form
       method="post"
-      action="#"
       css={css`
         display: flex;
         flex-direction: column;
         width: 70vw;
         max-width: 60rem;
+        -webkit-appearance: none;
       `}
       autoComplete="off"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
     >
+      <input type="hidden" name="bot-field" />
       <StyledLabel>Name</StyledLabel>
       <StyledInput
         type="text"

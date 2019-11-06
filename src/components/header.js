@@ -39,18 +39,22 @@ const Breadcrumb = () => {
     )
   }
 
+  const cap = text => {
+    return text.charAt(0).toUpperCase() + text.slice(1)
+  }
+
   const RenderLink = () => {
     const RenderChildLink = () => {
-      if (pathname[2] !== undefined) {
+      if (pathname[2]) {
         return (
           <>
-            <StyledLink to={pathname[1]}>{pathname[1]}</StyledLink>
+            <StyledLink to={pathname[1]}>{cap(pathname[1])}</StyledLink>
             <RenderSlash />
             <CurrentLink> {pathname[2]}</CurrentLink>
           </>
         )
       }
-      return <CurrentLink to={pathname[1]}>{pathname[1]}</CurrentLink>
+      return <CurrentLink to={pathname[1]}>{cap(pathname[1])}</CurrentLink>
     }
     if (pathname[1] === "") {
       return <CurrentLink to="/">Haserin</CurrentLink>
