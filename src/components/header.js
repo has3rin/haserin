@@ -9,16 +9,74 @@ import { toggleJapanese } from "../actions/index"
 import jaIcon from "../images/japan.png"
 import enIcon from "../images/uk.png"
 
-const StyledLink = styled(Link)`
-  margin-left: calc(0.5rem + 4vw);
-  font-weight: 300;
-`
 const EditedLabel = styled.label`
   &::after {
     background-image: ${props =>
       props.japanese ? `url(${jaIcon})` : `url(${enIcon})`};
   }
 `
+
+const Breadcrumb = () => {
+  const pathname = window.location.pathname.split("/")
+  const StyledLink = styled(Link)`
+    color: grey;
+  `
+  const CurrentLink = styled(StyledLink)`
+    color: #111;
+    font-weight: 400;
+  `
+
+  const RenderSlash = () => {
+    return (
+      <span
+        css={css`
+          margin: 0 2vw;
+        `}
+      >
+        /
+      </span>
+    )
+  }
+
+  const RenderLink = () => {
+    const RenderChildLink = () => {
+      if (pathname[2] !== undefined) {
+        return (
+          <>
+            <StyledLink to={pathname[1]}>{pathname[1]}</StyledLink>
+            <RenderSlash />
+            <CurrentLink> {pathname[2]}</CurrentLink>
+          </>
+        )
+      }
+      return <CurrentLink to={pathname[1]}>{pathname[1]}</CurrentLink>
+    }
+    if (pathname[1] === "") {
+      return <CurrentLink to="/">Haserin</CurrentLink>
+    }
+    return (
+      <>
+        <StyledLink to="/">Haserin</StyledLink>
+        <RenderSlash />
+        <RenderChildLink />
+      </>
+    )
+  }
+
+  return (
+    <div
+      css={css`
+        font-weight: 300;
+        font-size: calc(1.5rem + 0.8vw);
+        color: grey;
+        margin-right: auto;
+      `}
+    >
+      <RenderLink />
+    </div>
+  )
+}
+
 const Header = ({ data }) => {
   const dispatch = useDispatch()
   const { isJapanese } = useSelector(state => state.language)
@@ -30,29 +88,13 @@ const Header = ({ data }) => {
         align-items: center;
       `}
     >
-      <div
-        css={css`
-          font-size: calc(2.4rem + 1vw);
-          font-weight: 700;
-          flex: 2;
-        `}
-      >
-        <Link
-          to="/"
-          css={css`
-            color: limegreen;
-          `}
-        >
-          Haserin
-        </Link>
-      </div>
+      <Breadcrumb />
       <div
         css={css`
           // Color Variables
           --green: #2ecc71;
           --lightgray: lightgray;
           --background: whitesmoke;
-          margin: auto;
         `}
       >
         <input
