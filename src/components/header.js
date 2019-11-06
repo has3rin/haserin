@@ -40,10 +40,10 @@ const Breadcrumb = () => {
   }
 
   const cap = text => {
-    if (text !== "") {
+    if (text !== undefined) {
       return text.charAt(0).toUpperCase() + text.slice(1)
     }
-    return ""
+    return null
   }
 
   const RenderLink = () => {
