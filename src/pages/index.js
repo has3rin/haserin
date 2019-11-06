@@ -42,8 +42,16 @@ const IndexPage = ({ data }) => {
   } = data.contentfulHome
 
   const StyledLink = styled(Link)`
-    font-size: calc(1rem + 1vw);
-    text-decoration: underline;
+    padding-bottom: 0.5vw;
+    display: inline-block;
+    background-image: linear-gradient(to right, silver, silver);
+    background-position: 0 calc(1.5rem + 1.2vw);
+    background-repeat: no-repeat;
+    background-size: 100% 0.1rem;
+    transition: background-size 0.2s ease;
+    &:hover {
+      background-image: linear-gradient(to right, #111, #111);
+    }
   `
   const StyledTitle = styled.div`
     font-size: calc(1rem + 2vw);
@@ -51,7 +59,6 @@ const IndexPage = ({ data }) => {
     margin: calc(1rem + 1vw);
   `
   const StyledDescription = styled.div`
-    font-size: calc(1.2rem + 0.5vw);
     max-width: 75rem;
     text-align: center;
     line-height: 1.8;
@@ -113,7 +120,7 @@ const IndexPage = ({ data }) => {
           <div
             css={css`
               width: 100%;
-              margin: 16vh 0 8vh;
+              margin: 8vh 0 8vh;
               display: flex;
               justify-content: space-evenly;
             `}
